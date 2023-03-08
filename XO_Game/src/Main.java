@@ -3,12 +3,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
         char[][] field = new char [3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                field[i][j] = '·'; //·
+                field[i][j] = '·';
             }
         }
         fieldView(field);
@@ -20,43 +18,15 @@ public class Main {
                 System.out.println("Ход Х!");
                 System.out.println("Введите координаты поля.");
 
-                // ---test---
-//                int x=0, y=0;
-//                do {
-//                    System.out.print("x [0;2]: ");
-//                    x = scanner.nextInt();
-//                    System.out.print("y [0;2]: ");
-//                    y = scanner.nextInt();
-//
-//                    if (x < 0 || x > 2) System.out.println("Координата х введена не правильно =(");
-//                    if (y < 0 || y > 2) System.out.println("Координата y введена не правильно =(");
-//                } while ( x > -1 && x < 3 && y > -1 && y < 3);
-//                while (x > -1 && x < 3 && y > -1 && y < 3) {
-//                    System.out.print("x [0;2]: ");
-//                    x = scanner.nextInt();
-//                    System.out.print("y [0;2]: ");
-//                    y = scanner.nextInt();
-//
-//                    if (x < 0 || x > 2) System.out.println("Координата х введена не правильно =(");
-//                    if (y < 0 || y > 2) System.out.println("Координата y введена не правильно =(");
-//                }
-                // ---test---
-                System.out.print("x [0;2]: ");
-                int x = scanner.nextInt();
-                System.out.print("y [0;2]: ");
-                int y = scanner.nextInt();
-                field[x][y] = 'X';
-                fieldView(field);
+                validation('X', field);
+
             } else {
                 System.out.println("==========");
                 System.out.println("Ход O!");
                 System.out.println("Введите координаты поля.");
-                System.out.print("x [0;2]: ");
-                int x = scanner.nextInt();
-                System.out.print("y [0;2]: ");
-                int y = scanner.nextInt();
-                field[x][y] = 'O';
-                fieldView(field);
+
+                validation('O', field);
+
             }
             int XCounter = 0, OCounter = 0;
             // проверка всех строк
@@ -152,11 +122,35 @@ public class Main {
         for (int i = 0; i < 3; i++) {
             System.out.print(i + "| ");
             for (int j = 0; j < 3; j++) {
-                System.out.print(array[i][j] + " ");;
+                System.out.print(array[i][j] + " ");
             }
             System.out.println("|");
         }
     }
+
+    public static void validation(char XO, char[][] array) {
+
+        Scanner scanner = new Scanner(System.in);
+        boolean val = true;
+
+        while (val) {
+            System.out.print("x [0;2]: ");
+            int x = scanner.nextInt();
+            System.out.print("y [0;2]: ");
+            int y = scanner.nextInt();
+
+            if (array[x][y] != '·') {
+                System.out.println("В данном поле уже находится другой символ.");
+            } else {
+                array[x][y] = XO;
+                val = false;
+            }
+
+            fieldView(array);
+
+        }
+    }
+
 
 }
 
