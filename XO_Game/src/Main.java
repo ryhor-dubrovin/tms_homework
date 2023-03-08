@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 //Разработать консольную игру крестики-нолики.
 public class Main {
@@ -14,14 +15,14 @@ public class Main {
         int a = 0;
         while (a < 9) {
             if (a % 2 == 0) {
-                System.out.println("==========");
+               // System.out.println("==========");
                 System.out.println("Ход Х!");
                 System.out.println("Введите координаты поля.");
 
                 validation('X', field);
 
             } else {
-                System.out.println("==========");
+                // System.out.println("==========");
                 System.out.println("Ход O!");
                 System.out.println("Введите координаты поля.");
 
@@ -126,6 +127,7 @@ public class Main {
             }
             System.out.println("|");
         }
+        System.out.println("==========");
     }
 
     public static void validation(char XO, char[][] array) {
@@ -139,11 +141,28 @@ public class Main {
             System.out.print("y [0;2]: ");
             int y = scanner.nextInt();
 
-            if (array[x][y] != '·') {
-                System.out.println("В данном поле уже находится другой символ.");
+            boolean XVal = x > -1 && x < 3;
+            boolean YVal = y > -1 && y < 3;
+
+            if (XVal && YVal) {
+
+                if (array[x][y] != '·') {
+                    System.out.println("В данном поле уже находится другой символ.");
+                    System.out.println("Введите координаты для " + XO + " заново.");
+                } else {
+                    array[x][y] = XO;
+                    val = false;
+                }
+
+            } else if (XVal) {
+                System.out.println("Координата y не в промежутке [0;2]");
+                System.out.println("Введите координаты для " + XO + " заново.");
+            } else if (YVal) {
+                System.out.println("Координата x не в промежутке [0;2]");
+                System.out.println("Введите координаты для " + XO + " заново.");
             } else {
-                array[x][y] = XO;
-                val = false;
+                System.out.println("Координаты x и y не в промежутке [0;2]");
+                System.out.println("Введите координаты для " + XO + " заново.");
             }
 
             fieldView(array);
