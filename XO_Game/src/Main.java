@@ -166,16 +166,4 @@ public class Main {
         }
     }
 
-//    public static void whoWin (int isX, int isO, int a) {
-//        if (isX == 3) {
-//            System.out.println("Победа X !!!");
-//            a = 10;
-//            break;
-//        }
-//        if (isO == 3) {
-//            System.out.println("Победа O !!!");
-//            a = 10;
-//            break;
-//        }
-//    }
 }
