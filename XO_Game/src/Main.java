@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 //Разработать консольную игру крестики-нолики.
 public class Main {
@@ -15,18 +14,16 @@ public class Main {
         int a = 0;
         while (a < 9) {
             if (a % 2 == 0) {
-               // System.out.println("==========");
                 System.out.println("Ход Х!");
                 System.out.println("Введите координаты поля.");
 
-                validation('X', field);
+                nextMove('X', field);
 
             } else {
-                // System.out.println("==========");
                 System.out.println("Ход O!");
                 System.out.println("Введите координаты поля.");
 
-                validation('O', field);
+                nextMove('O', field);
 
             }
             int XCounter = 0, OCounter = 0;
@@ -111,7 +108,6 @@ public class Main {
         }
 
         if (a == 9) {
-            System.out.println("==========");
             System.out.println("Ничья!");
         }
     }
@@ -130,7 +126,7 @@ public class Main {
         System.out.println("==========");
     }
 
-    public static void validation(char XO, char[][] array) {
+    public static void nextMove(char XO, char[][] array) {
 
         Scanner scanner = new Scanner(System.in);
         boolean val = true;
@@ -148,7 +144,7 @@ public class Main {
 
                 if (array[x][y] != '·') {
                     System.out.println("В данном поле уже находится другой символ.");
-                    System.out.println("Введите координаты для " + XO + " заново.");
+                    System.out.println("Введите другие координаты для " + XO + ".");
                 } else {
                     array[x][y] = XO;
                     val = false;
@@ -170,6 +166,16 @@ public class Main {
         }
     }
 
-
+//    public static void whoWin (int isX, int isO, int a) {
+//        if (isX == 3) {
+//            System.out.println("Победа X !!!");
+//            a = 10;
+//            break;
+//        }
+//        if (isO == 3) {
+//            System.out.println("Победа O !!!");
+//            a = 10;
+//            break;
+//        }
+//    }
 }
-
