@@ -10,4 +10,23 @@ public class Transport {
         this.maxSpeed = maxSpeed;
         this.brand = brand;
     }
+    public double getPowerKv(){
+        return power * 0.74;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
 }

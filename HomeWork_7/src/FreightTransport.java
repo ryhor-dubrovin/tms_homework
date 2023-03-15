@@ -4,4 +4,7 @@ public class FreightTransport extends GroundTransport {
         super(power, weight, maxSpeed, brand, wheels, fuelConsumption);
         this.loadCapacity = loadCapacity;
     }
+    public void canCargoBePlaced (int cargoWeight) {
+        System.out.println(loadCapacity >= cargoWeight ? "Грузовик загружен." : "Вам нужен грузовик побольше.");
+    }
 }

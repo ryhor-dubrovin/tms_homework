@@ -7,4 +7,10 @@ public class GroundTransport extends Transport{
         this.wheels = wheels;
         this.fuelConsumption = fuelConsumption;
     }
+    public int getWheels() {
+        return wheels;
+    }
+    public int getFuelConsumption() {
+        return fuelConsumption;
+    }
 }
