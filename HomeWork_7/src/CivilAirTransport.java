@@ -1,6 +1,7 @@
 public class CivilAirTransport extends AirTransport{
     private int maxPassNumber;
     private boolean businessClassAvailable;
+
     public CivilAirTransport(int power,
                              int weight,
                              int maxSpeed,

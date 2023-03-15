@@ -1,6 +1,7 @@
 public class MilitaryTransport extends AirTransport{
     private boolean ejectionSystemAvailable;
     private int rocketCount;
+
     public MilitaryTransport(int power,
                              int weight,
                              int maxSpeed,
