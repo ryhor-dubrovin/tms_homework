@@ -1,15 +1,18 @@
-import firstPart.IStart;
-import firstPart.Shuttle;
-import firstPart.SpaceX;
-import firstPart.Spaceport;
+import secondPart.Menu;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Spaceport spaceport = new Spaceport();
-        Shuttle shuttle = new Shuttle();
-        SpaceX teslaFly = new SpaceX();
+//        Spaceport spaceport = new Spaceport();
+//        Shuttle shuttle = new Shuttle();
+//        SpaceX teslaFly = new SpaceX();
+//
+//        spaceport.launch(shuttle);
+//        spaceport.launch(teslaFly);
+        Menu menu = new Menu();
+        menu.runMenu();
 
-        spaceport.launch(shuttle);
-        spaceport.launch(teslaFly);
+
     }
 }
