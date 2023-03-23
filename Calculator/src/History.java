@@ -20,8 +20,6 @@ public class History {
         System.out.println();
     }
     void addResult (double result){
-
-        numberOfResult++;
         if (numberOfResult < historySize) {
             history[numberOfResult] = result;
             isResult[numberOfResult] = true;
@@ -29,6 +27,6 @@ public class History {
             numberOfResult = 0;
             history[numberOfResult] = result;
         }
-
+        numberOfResult++;
     }
 }
