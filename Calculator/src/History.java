@@ -1,25 +1,34 @@
 public class History {
     int historySize;
-    double[] history = new double[historySize];
+    double[] history;
+    int numberOfResult;
+    boolean[] isResult;
 
-    public History(double[] history) {
-        this.history = history;
-    }
-    public History(int historySize, double[] history) {
+    public History(int historySize, double[] history, int numberOfResult, boolean[] isResult) {
         this.historySize = historySize;
         this.history = history;
+        this.numberOfResult = numberOfResult;
+        this.isResult = isResult;
     }
-
-    void addResult(double operationResult, int i) {
-        history[i] = operationResult;
-    }
-    void showHistory(double[] history, boolean[] show){
+    void showHistory(double[] history){
         System.out.println("История результатов операций: ");
         for (int i = 0; i < historySize; i++) {
-            if(show[i]) {
+            if(isResult[i]) {
                 System.out.print(history[i] + "; ");
             }
         }
         System.out.println();
+    }
+    void addResult (double result){
+
+        numberOfResult++;
+        if (numberOfResult < historySize) {
+            history[numberOfResult] = result;
+            isResult[numberOfResult] = true;
+        } else {
+            numberOfResult = 0;
+            history[numberOfResult] = result;
+        }
+
     }
 }

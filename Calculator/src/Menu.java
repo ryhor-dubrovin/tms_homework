@@ -3,24 +3,20 @@ import MathOperations.Division;
 import MathOperations.Multiply;
 import MathOperations.Sum;
 import java.util.Scanner;
+
 public class Menu{
     Scanner scanner = new Scanner(System.in);
     int historySize = 5;
+    int numberOfResult = 0;
     double[] history = new double[historySize];
     boolean[] isResult = new boolean[historySize];
-    History calcHistory = new History(historySize,history);
-    //History calcHistory = new History(history);
-    int numberOfResult = 0;
-
+    History calcHistory = new History(historySize,history,numberOfResult,isResult);
 
     public void runMenu() {
 
         System.out.println("========================== Калькулятор ==========================");
-        for (int i = 0; i < historySize; i++) {
-            history[i] = 0;
-            isResult[i] = false;
-        }
-        while (true) {
+
+        while(true) {
             int option = choseOption();
 
             switch (option) {
@@ -56,15 +52,8 @@ public class Menu{
                     if(actionValidation) {
                         System.out.println("Result = " + result);
                         separatingLine();
-                        if (numberOfResult < historySize) {
-                            calcHistory.addResult(result, numberOfResult);
-                            isResult[numberOfResult] = true;
-                            numberOfResult++;
-                        } else {
-                            numberOfResult = 0;
-                            calcHistory.addResult(result, numberOfResult);
-                            numberOfResult++;
-                        }
+                        calcHistory.addResult(result);
+                        numberOfResult++;
                     }
                     break;
                 case 0:
@@ -72,7 +61,7 @@ public class Menu{
                     System.exit(0);
                     break;
                 case 5:
-                    calcHistory.showHistory(history,isResult);
+                    calcHistory.showHistory(history);
                     separatingLine();
                     break;
                 default:
