@@ -1,19 +1,14 @@
+import History.History;
 import MathOperations.Difference;
 import MathOperations.Division;
 import MathOperations.Multiply;
 import MathOperations.Sum;
 import java.util.Scanner;
-
+import History.HistoryImp;
 public class Menu{
-    Scanner scanner = new Scanner(System.in);
-    int historySize = 5;
-    int numberOfResult = 0;
-    double[] history = new double[historySize];
-    boolean[] isResult = new boolean[historySize];
-    History calcHistory = new History(historySize,history,numberOfResult,isResult);
+    private Scanner scanner = new Scanner(System.in);
 
-    public void runMenu() {
-
+    public void runMenu(History history) {
         System.out.println("========================== Калькулятор ==========================");
 
         while(true) {
@@ -52,8 +47,7 @@ public class Menu{
                     if(actionValidation) {
                         System.out.println("Result = " + result);
                         separatingLine();
-                        calcHistory.addResult(result);
-                        numberOfResult++;
+                        history.addResult(result);
                     }
                     break;
                 case 0:
@@ -61,7 +55,7 @@ public class Menu{
                     System.exit(0);
                     break;
                 case 5:
-                    calcHistory.showHistory(history);
+                    history.showHistory();
                     separatingLine();
                     break;
                 default:
