@@ -15,9 +15,30 @@ public class Car {
         this.maxSpeed = maxSpeed;
         this.numberOfSeats = numberOfSeats;
     }
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYearOfDevelop() {
+        return yearOfDevelop;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
     public void start() {
         int a = random.nextInt(21);
-        if(a % 2 == 0) {
+
+        if(a % 2 != 0) {
             System.out.println("Завелся!");
         }
     }
