@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class History2Imp implements History {
 
-    ArrayList<Double> history = new ArrayList<>();
+    private ArrayList<Double> history = new ArrayList<>();
     @Override
     public void showHistory() {
         System.out.println("История результатов операций: ");
